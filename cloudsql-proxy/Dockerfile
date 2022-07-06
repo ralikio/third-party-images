@@ -12,4 +12,5 @@ FROM scratch
 LABEL source=git@github.com:kyma-project/kyma.git
 
 COPY --from=user /etc/passwd /etc/passwd
-COPY --from=builder --chown=nonroot /cloud_sql_proxy /cloud_sql_proxy
+COPY --from=user /etc/group /etc/group
+COPY --from=builder --chown=nonroot:nonroot /cloud_sql_proxy /cloud_sql_proxy
